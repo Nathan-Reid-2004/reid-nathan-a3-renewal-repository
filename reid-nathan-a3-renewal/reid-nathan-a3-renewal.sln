@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "reid-nathan-a3-renewal", "reid-nathan-a3-renewal.csproj", "{08CFC695-896E-4143-B294-105BA4BD8A63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08CFC695-896E-4143-B294-105BA4BD8A63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08CFC695-896E-4143-B294-105BA4BD8A63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08CFC695-896E-4143-B294-105BA4BD8A63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08CFC695-896E-4143-B294-105BA4BD8A63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E9BDC25-6816-4043-903B-AC7581448A0C}
+	EndGlobalSection
+EndGlobal
