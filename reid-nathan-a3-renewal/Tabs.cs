@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,12 @@ namespace MohawkGame2D
         //defining variables
 
         Color startButtonGreen = new Color("78AE43");
+        Color startButtonGreenHovering = new Color("#22AD00");
+
+        public Color boxGreyHovering = new Color("##A3A396");
+        Color boxGreyClicking = new Color("#454743");
+
+
 
         //defining X, Y, Width, and Height of all Tabs
         float taskbarBGXPosition = 0;
@@ -43,10 +50,7 @@ namespace MohawkGame2D
             //drawing taskbar boxes/tabs
             for (int taskbarBoxXPosition = 200; taskbarBoxXPosition < 750; taskbarBoxXPosition += 100)
             {
-                Draw.FillColor = Color.LightGray;
-                Draw.LineColor = Color.DarkGray;
-                Draw.LineSize = 2;
-                Draw.Rectangle(taskbarBoxXPosition, taskbarBoxYPosition, taskbarBoxWidth, taskbarBoxHeight);
+               
 
                 //defining collision for each box/tab
                 float topEdgeBox = taskbarBoxYPosition;
@@ -54,36 +58,59 @@ namespace MohawkGame2D
                 float leftEdgeBox = taskbarBoxXPosition;
                 float rightEdgeBox = taskbarBoxXPosition + taskbarBoxWidth;
 
-                //PUT IF STATEMENT HERE FOR COLLISION (WILL CHANGE COLOUR)!!
+                //if the hitbox and tabs collide, change tab colour
+                bool leftCollisionBox = cursor.leftEdgeHitbox < rightEdgeBox;
+                bool rightCollisionBox = cursor.rightEdgeHitbox > leftEdgeBox;
+                bool topCollisionBox = cursor.topEdgeHitbox < bottomEdgeBox;
+                bool bottomCollisionBox = cursor.bottomEdgeHitbox > topEdgeBox;
 
-                bool leftCollision = cursor.leftEdgeHitbox < rightEdgeBox;
-                bool rightCollision = cursor.rightEdgeHitbox > leftEdgeBox;
-                bool topCollision = cursor.topEdgeHitbox < bottomEdgeBox;
-                bool bottomCollision = cursor.bottomEdgeHitbox > topEdgeBox;
+                bool isItCollidedBox = leftCollisionBox && rightCollisionBox && topCollisionBox && bottomCollisionBox;
 
-                bool isItCollided = leftCollision && rightCollision && topCollision && bottomCollision;
+                if (isItCollidedBox)
+                {
+                    Draw.FillColor = boxGreyHovering;
+                }
+                else
+                {
+                    Draw.FillColor = Color.LightGray;
+                }
 
-
+                Draw.LineColor = Color.DarkGray;
+                Draw.LineSize = 2;
+                Draw.Rectangle(taskbarBoxXPosition, taskbarBoxYPosition, taskbarBoxWidth, taskbarBoxHeight);
             }
 
-            //drawing start box/tab
-            Draw.FillColor = startButtonGreen;
-            Draw.LineColor = Color.DarkGray;
-            Draw.LineSize = 2;
-            Draw.Rectangle(taskbarStartXPosition, taskbarStartYPosition, taskbarStartWidth, taskbarStartHeight);
-
+            //drawing start box/tab & collision
             float topEdgeStart = taskbarStartYPosition;
             float bottomEdgeStart = taskbarStartYPosition + taskbarStartHeight;
             float leftEdgeStart = taskbarStartXPosition;
             float rightEdgeStart = taskbarStartXPosition + taskbarStartWidth;
 
-            if (cursor.rightEdgeHitbox > leftEdgeStart && cursor.leftEdgeHitbox < rightEdgeStart
-                && cursor.bottomEdgeHitbox > topEdgeStart && cursor.topEdgeHitbox < bottomEdgeStart)
+            //if the hitbox and start tab collide, change tab colour
+            bool leftCollisionStart = cursor.leftEdgeHitbox < rightEdgeStart;
+            bool rightCollisionStart = cursor.rightEdgeHitbox > leftEdgeStart;
+            bool topCollisionStart = cursor.topEdgeHitbox < bottomEdgeStart;
+            bool bottomCollisionStart = cursor.bottomEdgeHitbox > topEdgeStart;
+
+            bool isItCollidedStart = leftCollisionStart && rightCollisionStart && topCollisionStart && bottomCollisionStart;
+
+            if (isItCollidedStart)
             {
-                Draw.FillColor = Color.DarkGray;
+                Draw.FillColor = startButtonGreenHovering;
+            }
+            else
+            {
+                Draw.FillColor = startButtonGreen;
             }
 
+            Draw.LineColor = Color.DarkGray;
+            Draw.LineSize = 2;
+            Draw.Rectangle(taskbarStartXPosition, taskbarStartYPosition, taskbarStartWidth, taskbarStartHeight);
+
         }
+
+
+
         
         //setup & update functions
         public void Setup()

@@ -29,7 +29,7 @@ namespace MohawkGame2D
             float hitboxWidth = 30;
             float hitboxHeight = 30;
 
-            Draw.FillColor = Color.Red;
+            Draw.FillColor = Color.Clear;
             Draw.LineColor = Color.Clear;
             Draw.Rectangle(hitboxX, hitboxY, hitboxWidth, hitboxHeight);
 
