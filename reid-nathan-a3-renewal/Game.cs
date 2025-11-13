@@ -76,7 +76,6 @@ namespace MohawkGame2D
             emailTab.Setup();
 
             computerVirus = new Viruses();
-            computerVirus.Setup(); 
 
             main = new Game();
         }
@@ -155,7 +154,6 @@ namespace MohawkGame2D
             }
 
             computerVirus.Update(cursor, main, emailTab);
-
             cursor.Update(baseTabs);
         }
     }

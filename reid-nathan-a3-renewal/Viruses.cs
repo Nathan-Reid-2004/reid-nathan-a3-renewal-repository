@@ -29,6 +29,16 @@ namespace MohawkGame2D
 
         public bool isItCollidedRoamingCursor;
 
+        public bool leftCollisionSpeedUp;
+        public bool rightCollisionSpeedUp;
+        public bool topCollisionSpeedUp;
+        public bool bottomCollisionSpeedUp;
+
+        public bool isItCollidedSpeedUp;
+
+        //defining the timer variable
+        public float timer;
+
         public void RoamingVirusesMovement(Player cursor, Game main)
         {
             //defining virus movement towards the center of the email tab
@@ -42,7 +52,40 @@ namespace MohawkGame2D
 
                 roamingVirusesDirectionNormalized -= roamingVirusesDirection;
             }
- 
+
+            //if cursor is inside of email tab, the speed of the virus increases
+            leftCollisionSpeedUp = cursor.leftEdgeHitbox < main.rightEdgeEmailTabBackground;
+            rightCollisionSpeedUp = cursor.rightEdgeHitbox > main.leftEdgeEmailTabBackground;
+            topCollisionSpeedUp = cursor.topEdgeHitbox < main.bottomEdgeEmailTabBackground;
+            bottomCollisionSpeedUp = cursor.bottomEdgeHitbox > main.topEdgeEmailTabBackground;
+
+            isItCollidedSpeedUp = leftCollisionSpeedUp && rightCollisionSpeedUp && topCollisionSpeedUp && bottomCollisionSpeedUp;
+
+            //drawing the timer. depending on the value of the timer, the value of the speed increase will get higher.
+            float timer = Time.SecondsElapsed;
+
+            Text.Draw($"{timer:F2}", 20, 20);
+
+            if (isItCollidedSpeedUp)
+            {
+                roamingVirusesSpeed *= 1.2f;
+            }
+
+            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 20)
+            {
+                roamingVirusesSpeed *= 1.5f;
+            }
+
+            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 40)
+            {
+                roamingVirusesSpeed *= 1.8f;
+            }
+
+            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 60)
+            {
+                roamingVirusesSpeed *= 2.1f;
+            }
+
             roamingVirusesStartingPoint += roamingVirusesDirectionNormalized * roamingVirusesSpeed * Time.DeltaTime;
         }
 
