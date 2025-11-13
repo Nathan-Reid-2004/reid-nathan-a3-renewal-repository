@@ -21,6 +21,7 @@ namespace MohawkGame2D
         Tabs baseTabs;
         Email emailTab;
         Email emailTabRespawn;
+        Viruses computerVirus;
 
         //I put the positions/properties here, in Game.CS, so that I do not have to reference them from emailTab
         //(since the variables no longer work once the instance of the class goes null)
@@ -29,6 +30,32 @@ namespace MohawkGame2D
         public float closeEmailWidth = 30;
         public float closeEmailHeight = 30;
         public bool isItCollidedCloseEmail;
+
+        //defining the center-point of the email tab for the viruses to follow
+        public Vector2 emailCenter = new Vector2(300, 250);
+
+        //defining the email tab background & collision (once again, I am doing this in Game.CS to prevent any errors for when
+        //the player makes emailTab null.
+
+        public float emailTabBackgroundXPosition = 100;
+        public float emailTabBackgroundYPosition = 50;
+        public float emailTabBackgroundWidth = 400;
+        public float emailTabBackgroundHeight = 400;
+
+        public float topEdgeEmailTabBackground;
+        public float bottomEdgeEmailTabBackground;
+        public float leftEdgeEmailTabBackground;
+        public float rightEdgeEmailTabBackground;
+
+        public void EmailTabBackgroundCollision()
+        {
+
+            topEdgeEmailTabBackground = emailTabBackgroundYPosition;
+            bottomEdgeEmailTabBackground = emailTabBackgroundYPosition + emailTabBackgroundHeight;
+            leftEdgeEmailTabBackground = emailTabBackgroundXPosition;
+            rightEdgeEmailTabBackground = emailTabBackgroundXPosition + emailTabBackgroundWidth;
+
+        }
 
 
         /// <summary>
@@ -48,7 +75,8 @@ namespace MohawkGame2D
             emailTab = new Email();
             emailTab.Setup();
 
-            emailTabRespawn = new Email();
+            computerVirus = new Viruses();
+            computerVirus.Setup(); 
 
             main = new Game();
         }
@@ -125,6 +153,8 @@ namespace MohawkGame2D
                 }
 
             }
+
+            computerVirus.Update(cursor, main);
 
             cursor.Update(baseTabs);
         }

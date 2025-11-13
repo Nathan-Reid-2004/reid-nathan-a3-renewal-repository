@@ -18,6 +18,9 @@ namespace MohawkGame2D
         public float leftEdgeHitbox = 0.0f;
         public float rightEdgeHitbox = 0.0f;
 
+        //tracking player's position 
+        public Vector2 cursorPosition = Input.GetMousePosition();
+
         public void DrawPlayerCursor(float x, float y, Tabs baseTabs)
         {
 

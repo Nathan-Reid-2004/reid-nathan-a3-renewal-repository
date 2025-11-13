@@ -26,6 +26,8 @@ namespace MohawkGame2D
 
         Vector2 email1Top = new Vector2(110, 95);
 
+        //defining center-point of email tab
+
         
 
         public void DrawTabEmail(Tabs baseTabs, Game main, Player cursor)
@@ -35,7 +37,7 @@ namespace MohawkGame2D
                 Draw.FillColor = Color.Gray;
                 Draw.LineColor = Color.LightGray;
                 Draw.LineSize = 2;
-                Draw.Rectangle(100, 50, 400, 400);
+                Draw.Rectangle(main.emailTabBackgroundXPosition, main.emailTabBackgroundYPosition, main.emailTabBackgroundWidth, main.emailTabBackgroundHeight);
 
                 //drawing tab header
                 Draw.FillColor = baseTabs.boxGreyHovering;
