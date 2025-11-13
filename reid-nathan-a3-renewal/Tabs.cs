@@ -43,6 +43,13 @@ namespace MohawkGame2D
 
         public bool isItCollidedBox;
 
+        public bool leftCollisionStart;
+        public bool rightCollisionStart;
+        public bool topCollisionStart;
+        public bool bottomCollisionStart;
+
+        public bool isItCollidedStart;
+
 
 
 
@@ -95,12 +102,12 @@ namespace MohawkGame2D
             float rightEdgeStart = taskbarStartXPosition + taskbarStartWidth;
 
             //if the hitbox and start tab collide, change tab colour
-            bool leftCollisionStart = cursor.leftEdgeHitbox < rightEdgeStart;
-            bool rightCollisionStart = cursor.rightEdgeHitbox > leftEdgeStart;
-            bool topCollisionStart = cursor.topEdgeHitbox < bottomEdgeStart;
-            bool bottomCollisionStart = cursor.bottomEdgeHitbox > topEdgeStart;
+            leftCollisionStart = cursor.leftEdgeHitbox < rightEdgeStart;
+            rightCollisionStart = cursor.rightEdgeHitbox > leftEdgeStart;
+            topCollisionStart = cursor.topEdgeHitbox < bottomEdgeStart;
+            bottomCollisionStart = cursor.bottomEdgeHitbox > topEdgeStart;
 
-            bool isItCollidedStart = leftCollisionStart && rightCollisionStart && topCollisionStart && bottomCollisionStart;
+            isItCollidedStart = leftCollisionStart && rightCollisionStart && topCollisionStart && bottomCollisionStart;
 
             if (isItCollidedStart)
             {

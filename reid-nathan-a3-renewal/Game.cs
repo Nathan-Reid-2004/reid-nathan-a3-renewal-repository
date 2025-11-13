@@ -99,16 +99,34 @@ namespace MohawkGame2D
             }
 
             
-            bool newTabSpawn = baseTabs.isItCollidedBox && Input.IsMouseButtonDown(MouseInput.Left);
+            bool newTabSpawnEmail = baseTabs.isItCollidedBox && Input.IsMouseButtonDown(MouseInput.Left);
 
-            if (newTabSpawn)
+            if (newTabSpawnEmail)
             {
                 emailTab = new Email();
             }
 
+            bool newTabSpawnPasscode = baseTabs.isItCollidedStart && Input.IsMouseButtonDown(MouseInput.Left);
+
+            if (newTabSpawnPasscode)
+            {
+                Console.WriteLine("Please enter admin password.");
+                string playerPasswordInput = Console.ReadLine();
+
+                string correctPassword = "3*0]U5";
+
+                if (playerPasswordInput != correctPassword)
+                {
+                    Console.WriteLine("Incorrect password. Please re-click the START button and try again.");
+                }
+                else if (playerPasswordInput == correctPassword)
+                {
+                    Console.WriteLine("Correct password entered. Please return to your previous tab- you will see the engine management screen has appeared.");
+                }
+
+            }
+
             cursor.Update(baseTabs);
-
-
         }
     }
 }
