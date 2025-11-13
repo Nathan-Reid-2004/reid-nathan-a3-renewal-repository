@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +53,6 @@ namespace MohawkGame2D
 
 
             //drawing the sidebar buttons to access emails
-
             for (float sidebarYPosition = 90; sidebarYPosition < 400; sidebarYPosition += 50)
             {
 
@@ -79,6 +79,8 @@ namespace MohawkGame2D
                     Draw.FillColor = Color.LightGray;
                 }
 
+                //To access each individual email, I created a string array holding all email text. I then used for loops to
+                //detect if the mouse cursor is within the specific Y coordinate range to access the email.
                     string[] emailsBody = ["Hello this is a test", "Bye bye this is a test", "Yet another test", "Testy Testy", "Testing 123"];
 
                 for (float email1Hitbox = 125; email1Hitbox < 165; email1Hitbox++)
@@ -131,9 +133,7 @@ namespace MohawkGame2D
                     }
                 }
 
-
-
-
+                //email titles
                 Draw.LineColor = Color.LightGray;
                 Draw.LineSize = 2;
                 Draw.Rectangle(sidebarXPosition, sidebarYPosition, sidebarWidth, sidebarHeight);
@@ -156,10 +156,6 @@ namespace MohawkGame2D
 
 
         }
-
-
-
-        
 
         //setup & update functions
         public void Setup()

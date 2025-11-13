@@ -154,7 +154,7 @@ namespace MohawkGame2D
 
             }
 
-            computerVirus.Update(cursor, main);
+            computerVirus.Update(cursor, main, emailTab);
 
             cursor.Update(baseTabs);
         }
