@@ -2,6 +2,7 @@
 using Raylib_cs;
 using System;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 
 // The namespace your code is in.
 namespace MohawkGame2D
@@ -19,6 +20,7 @@ namespace MohawkGame2D
         Player cursor;
         Tabs baseTabs;
         Email emailTab;
+        Email emailTabRespawn;
 
         //I put the positions/properties here, in Game.CS, so that I do not have to reference them from emailTab
         //(since the variables no longer work once the instance of the class goes null)
@@ -46,6 +48,8 @@ namespace MohawkGame2D
             emailTab = new Email();
             emailTab.Setup();
 
+            emailTabRespawn = new Email();
+
             main = new Game();
         }
 
@@ -63,7 +67,7 @@ namespace MohawkGame2D
             float bottomEdgeCloseEmail = closeEmailYPosition + closeEmailHeight;
             float leftEdgeCloseEmail = closeEmailXPosition;
             float rightEdgeCloseEmail = closeEmailXPosition + closeEmailWidth;
-
+             
             bool leftCollisionCloseEmail = cursor.leftEdgeHitbox < rightEdgeCloseEmail;
             bool rightCollisionCloseEmail = cursor.rightEdgeHitbox > leftEdgeCloseEmail;
             bool topCollisionCloseEmail = cursor.topEdgeHitbox < bottomEdgeCloseEmail;
@@ -76,7 +80,6 @@ namespace MohawkGame2D
             //as well (ie. the update function)
             for (float closeEmailTab = 0; closeEmailTab < 1; closeEmailTab += 0.1f)
             {
-
 
                 //keeps the game running even after the object has become null
                 if (emailTab == null)
@@ -93,6 +96,14 @@ namespace MohawkGame2D
 
                 emailTab.Update(baseTabs, main, cursor);
 
+            }
+
+            
+            bool newTabSpawn = baseTabs.isItCollidedBox && Input.IsMouseButtonDown(MouseInput.Left);
+
+            if (newTabSpawn)
+            {
+                emailTab = new Email();
             }
 
             cursor.Update(baseTabs);

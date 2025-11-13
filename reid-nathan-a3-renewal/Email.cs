@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,19 @@ namespace MohawkGame2D
         float sidebarXPosition = 100;
         float sidebarWidth = 100;
         float sidebarHeight = 40;
+
+        //defining email tab Vector2s
+        Vector2 email5Top = new Vector2(110, 295);
+
+        Vector2 email4Top = new Vector2(110, 245);
+
+        Vector2 email3Top = new Vector2(110, 195);
+
+        Vector2 email2Top = new Vector2(110, 145);
+
+        Vector2 email1Top = new Vector2(110, 95);
+
+        
 
         public void DrawTabEmail(Tabs baseTabs, Game main, Player cursor)
         {
@@ -62,9 +76,80 @@ namespace MohawkGame2D
                 {
                     Draw.FillColor = Color.LightGray;
                 }
+
+                    string[] emailsBody = ["Hello this is a test", "Bye bye this is a test", "Yet another test", "Testy Testy", "Testing 123"];
+
+                for (float email1Hitbox = 125; email1Hitbox < 165; email1Hitbox++)
+                {
+
+                    if (Input.GetMouseY() == email1Hitbox && isItCollidedSidebar)
+                    {
+                        Draw.FillColor = Color.White;
+                        Text.Draw(emailsBody[0], 200, 200);
+                    }
+                }
+
+                for (float email2Hitbox = 175; email2Hitbox < 215; email2Hitbox++)
+                {
+
+                    if (Input.GetMouseY() == email2Hitbox && isItCollidedSidebar)
+                    {
+                        Draw.FillColor = Color.White;
+                        Text.Draw(emailsBody[1], 200, 200);
+                    }
+                }
+
+                for (float email3Hitbox = 225; email3Hitbox < 265; email3Hitbox++)
+                {
+
+                    if (Input.GetMouseY() == email3Hitbox && isItCollidedSidebar)
+                    {
+                        Draw.FillColor = Color.White;
+                        Text.Draw(emailsBody[2], 200, 200);
+                    }
+                }
+
+                for (float email4Hitbox = 275; email4Hitbox < 315; email4Hitbox++)
+                {
+
+                    if (Input.GetMouseY() == email4Hitbox && isItCollidedSidebar)
+                    {
+                        Draw.FillColor = Color.White;
+                        Text.Draw(emailsBody[3], 200, 200);
+                    }
+                }
+
+                for (float email5Hitbox = 325; email5Hitbox < 365; email5Hitbox++)
+                {
+
+                    if (Input.GetMouseY() == email5Hitbox && isItCollidedSidebar)
+                    {
+                        Draw.FillColor = Color.White;
+                        Text.Draw(emailsBody[4], 200, 200);
+                    }
+                }
+
+
+
+
                 Draw.LineColor = Color.LightGray;
                 Draw.LineSize = 2;
                 Draw.Rectangle(sidebarXPosition, sidebarYPosition, sidebarWidth, sidebarHeight);
+
+                Text.Size = 15;
+                Text.Draw("Pod Status \nUpdate", email5Top);
+
+                Text.Size = 15;
+                Text.Draw("Rental \nPeriod", email4Top);
+
+                Text.Size = 15;
+                Text.Draw("Nutrients \nWarning", email3Top);
+
+                Text.Size = 15;
+                Text.Draw("Worried...", email2Top);
+
+                Text.Size = 15;
+                Text.Draw("Welcome!", email1Top);
             }
 
 

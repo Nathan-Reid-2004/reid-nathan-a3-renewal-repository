@@ -36,6 +36,14 @@ namespace MohawkGame2D
         float taskbarStartWidth = 150;
         float taskbarStartHeight = 46;
 
+        public bool leftCollisionBox;
+        public bool rightCollisionBox;
+        public bool topCollisionBox;
+        public bool bottomCollisionBox;
+
+        public bool isItCollidedBox;
+
+
 
 
         public void DrawTaskbar(Player cursor)
@@ -48,7 +56,7 @@ namespace MohawkGame2D
             Draw.Rectangle(taskbarBGXPosition, taskbarBGYPosition, taskbatBGWidth, taskbarBGHeight);
 
             //drawing taskbar boxes/tabs
-            for (int taskbarBoxXPosition = 200; taskbarBoxXPosition < 750; taskbarBoxXPosition += 100)
+            for (int taskbarBoxXPosition = 200; taskbarBoxXPosition < 400; taskbarBoxXPosition += 100)
             {
                
 
@@ -59,12 +67,12 @@ namespace MohawkGame2D
                 float rightEdgeBox = taskbarBoxXPosition + taskbarBoxWidth;
 
                 //if the hitbox and tabs collide, change tab colour
-                bool leftCollisionBox = cursor.leftEdgeHitbox < rightEdgeBox;
-                bool rightCollisionBox = cursor.rightEdgeHitbox > leftEdgeBox;
-                bool topCollisionBox = cursor.topEdgeHitbox < bottomEdgeBox;
-                bool bottomCollisionBox = cursor.bottomEdgeHitbox > topEdgeBox;
+                leftCollisionBox = cursor.leftEdgeHitbox < rightEdgeBox;
+                rightCollisionBox = cursor.rightEdgeHitbox > leftEdgeBox;
+                topCollisionBox = cursor.topEdgeHitbox < bottomEdgeBox;
+                bottomCollisionBox = cursor.bottomEdgeHitbox > topEdgeBox;
 
-                bool isItCollidedBox = leftCollisionBox && rightCollisionBox && topCollisionBox && bottomCollisionBox;
+                isItCollidedBox = leftCollisionBox && rightCollisionBox && topCollisionBox && bottomCollisionBox;
 
                 if (isItCollidedBox)
                 {
