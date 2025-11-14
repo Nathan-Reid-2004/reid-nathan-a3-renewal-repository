@@ -25,7 +25,7 @@ namespace MohawkGame2D
         {
 
             //drawing the hitbox & defining edges
-            //temporarily making colour red instead of clear so I can see the hitbox
+            //temporarily made the colour red instead of clear so I can see the hitbox
 
             float hitboxX = x - 15;
             float hitboxY = y - 50;

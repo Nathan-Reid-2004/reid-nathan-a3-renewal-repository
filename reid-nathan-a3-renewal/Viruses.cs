@@ -15,6 +15,8 @@ namespace MohawkGame2D
         Vector2 roamingVirusesStartingPoint = new Vector2(700, 100);
         Vector2 roamingVirusesSize = new Vector2(50);
 
+        Color roamingVirusesBlue = new Color("#018080");
+
         public bool leftCollisionRoaming;
         public bool rightCollisionRoaming;
         public bool topCollisionRoaming;
@@ -46,7 +48,8 @@ namespace MohawkGame2D
             Vector2 roamingVirusesDirectionNormalized = Vector2.Normalize(roamingVirusesDirection);
             float roamingVirusesSpeed = 100;
 
-            //defining virus movement when colliding with the mouse cursor
+            //defining virus movement when colliding with the mouse cursor. when collision occurs, the virus will
+            //teleport backwards by the value of the distance it travelled, essentially resetting its travel path.
             if (isItCollidedRoamingCursor)
             {
 
@@ -71,17 +74,17 @@ namespace MohawkGame2D
                 roamingVirusesSpeed *= 1.2f;
             }
 
-            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 20)
+            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 30)
             {
                 roamingVirusesSpeed *= 1.5f;
             }
 
-            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 40)
+            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 60)
             {
                 roamingVirusesSpeed *= 1.8f;
             }
 
-            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 60)
+            if (isItCollidedSpeedUp && Time.SecondsElapsed >= 90)
             {
                 roamingVirusesSpeed *= 2.1f;
             }
@@ -93,9 +96,9 @@ namespace MohawkGame2D
         {
 
             //drawing viruses
-            Draw.FillColor = Color.Yellow;
-            Draw.LineColor = Color.Green;
-            Draw.LineSize = 2;
+            Draw.FillColor = roamingVirusesBlue;
+            Draw.LineColor = roamingVirusesBlue;
+            Draw.LineSize = 1;
             Draw.Rectangle(roamingVirusesStartingPoint, roamingVirusesSize);
 
 
@@ -106,13 +109,13 @@ namespace MohawkGame2D
                 Draw.FillColor = Color.Blue;
                 Draw.Rectangle(0, 0, 800, 600);
 
-                Text.Draw("Exodus OS 9.0 ran into an issue and has to restart.", 50, 300);
+                Text.Draw("Exodus OS 9.0 ran into \nan issue and has \nto restart.", 15, 20);
                 Text.Size = 200;
                 Text.Color = Color.White;
 
                 //smaller window size prevents players from reaching the viruses and continuing to
                 //play after a game over,
-                Window.SetSize(500, 500);
+                Window.SetSize(200, 200);
             }
 
         }
@@ -125,7 +128,7 @@ namespace MohawkGame2D
             float leftEdgeRoaming = roamingVirusesStartingPoint.X;
             float rightEdgeRoaming = roamingVirusesStartingPoint.X + roamingVirusesSize.X;
 
-            //if the hitbox collides with the email tab, display game over screen
+            //defining collision between the email tab and the viruses
             leftCollisionRoaming = leftEdgeRoaming < main.rightEdgeEmailTabBackground;
             rightCollisionRoaming = rightEdgeRoaming > main.leftEdgeEmailTabBackground;
             topCollisionRoaming = bottomEdgeRoaming < main.bottomEdgeEmailTabBackground;

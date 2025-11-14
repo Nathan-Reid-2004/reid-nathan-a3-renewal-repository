@@ -17,7 +17,6 @@ namespace MohawkGame2D
         Color startButtonGreenHovering = new Color("#22AD00");
 
         public Color boxGreyHovering = new Color("##A3A396");
-        Color boxGreyClicking = new Color("#454743");
 
 
 
@@ -62,7 +61,7 @@ namespace MohawkGame2D
             Draw.LineSize = 2;
             Draw.Rectangle(taskbarBGXPosition, taskbarBGYPosition, taskbatBGWidth, taskbarBGHeight);
 
-            //drawing taskbar boxes/tabs
+            //drawing taskbar boxes/tabs. using a for loop to draw multiple.
             for (int taskbarBoxXPosition = 200; taskbarBoxXPosition < 400; taskbarBoxXPosition += 100)
             {
                

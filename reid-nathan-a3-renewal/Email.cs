@@ -27,14 +27,12 @@ namespace MohawkGame2D
 
         Vector2 email1Top = new Vector2(110, 95);
 
-        //defining center-point of email tab
-
         
 
         public void DrawTabEmail(Tabs baseTabs, Game main, Player cursor)
         {
 
-                //drawing tab background
+                //drawing tab background, referencing positions/properties
                 Draw.FillColor = Color.Gray;
                 Draw.LineColor = Color.LightGray;
                 Draw.LineSize = 2;
@@ -52,7 +50,7 @@ namespace MohawkGame2D
 
 
 
-            //drawing the sidebar buttons to access emails
+            //drawing the sidebar buttons to access emails, using a for loop to draw multiple
             for (float sidebarYPosition = 90; sidebarYPosition < 400; sidebarYPosition += 50)
             {
 
@@ -62,7 +60,7 @@ namespace MohawkGame2D
                 float leftEdgeSidebar = sidebarXPosition;
                 float rightEdgeSidebar = sidebarXPosition + sidebarWidth;
 
-                //if the hitbox and start tab collide, change tab colour
+                //if the hitbox and button(s) collide, change tab colour
                 bool leftCollisionSidebar = cursor.leftEdgeHitbox < rightEdgeSidebar;
                 bool rightCollisionSidebar = cursor.rightEdgeHitbox > leftEdgeSidebar;
                 bool topCollisionSidebar = cursor.topEdgeHitbox < bottomEdgeSidebar;
@@ -81,7 +79,7 @@ namespace MohawkGame2D
 
                 //To access each individual email, I created a string array holding all email text. I then used for loops to
                 //detect if the mouse cursor is within the specific Y coordinate range to access the email.
-                    string[] emailsBody = ["Hello this is a test", "Bye bye this is a test", "Yet another test", "Testy Testy", "Testing 123"];
+                    string[] emailsBody = ["Hello Guest, \n\nWelcome! We at Exodus Inc\nsincerely hope you enjoy your\nstay in one of our\nexclusive privacy pods(please note\nfor future reference that you\nare renting Pod 3). \n\nWe recommend that if you\nare feeling particularly stressed,\nyou book for at least 3 weeks. \n\nIf your rental period does\nrun out, from any point within our\nprivate sector of space,\nit will take roughly 3 hours\nto return to civilization.\n\nThank you for choosing Exodus.", "Hey ******,\n\nI hope you are doing alright.\n*** have been out in that\npod for awhile now.\nMom and I are worried\nabout ***.Please come home.\n\nLiving in that thing forever\nis not sustainable, as much as\nExodus makes *** think it is.\n\nIf *** are open to it,\n*** can have a fresh start.\nmom and I will pay\nfor everything. All *** have\nto do is stay.\n\nTalk soon bud.", "WARNING - URGENT.\n\nNutrient Capsule almost empty!\nOnce levels reach null,\nemergency feeding tubes will\nactivate. Please return to\nnearest nutrient cabinet ASAP.\n\nIf emergency supply reaches null,\npod will automatically return\nto Exodus Station 0].\n\nThis is a revered medical\nfacility. You will undergo\na full nourishment cycle and\nthorough checkup. Please stay alert\nto your levels.", "Hello Member #LUUP\n\nThank you for upgrading to\nour premium entertainment pack!\nWe value your loyalty.\nAs a gesture of our gratitude:\n\nPlease accept a 1 month\nextension to your rental!\nWe hope you enjoy.\n\nWe are excited to continUe\nproviding you with our best\nentertainment. The comfort zone\nhas never been so comfortable!", "WARNING - URGENT.\n\nExodus OS has detected\na problem within your pods\nengineering systems.\n\nWe recommend navigating to the\ngreen admin button to manually\ncontrol fuel flow to the engines.\n\nIn the event your comms\nsystem is damaged, be careful\nof aural nodes invading Exodus O5.\nWe should arrive soon to assist you."];
 
                 for (float email1Hitbox = 125; email1Hitbox < 165; email1Hitbox++)
                 {
@@ -89,7 +87,7 @@ namespace MohawkGame2D
                     if (Input.GetMouseY() == email1Hitbox && isItCollidedSidebar)
                     {
                         Draw.FillColor = Color.White;
-                        Text.Draw(emailsBody[0], 200, 200);
+                        Text.Draw(emailsBody[0], 205, 90);
                     }
                 }
 
@@ -99,7 +97,7 @@ namespace MohawkGame2D
                     if (Input.GetMouseY() == email2Hitbox && isItCollidedSidebar)
                     {
                         Draw.FillColor = Color.White;
-                        Text.Draw(emailsBody[1], 200, 200);
+                        Text.Draw(emailsBody[1], 205, 90);
                     }
                 }
 
@@ -109,7 +107,7 @@ namespace MohawkGame2D
                     if (Input.GetMouseY() == email3Hitbox && isItCollidedSidebar)
                     {
                         Draw.FillColor = Color.White;
-                        Text.Draw(emailsBody[2], 200, 200);
+                        Text.Draw(emailsBody[2], 205, 90);
                     }
                 }
 
@@ -119,7 +117,7 @@ namespace MohawkGame2D
                     if (Input.GetMouseY() == email4Hitbox && isItCollidedSidebar)
                     {
                         Draw.FillColor = Color.White;
-                        Text.Draw(emailsBody[3], 200, 200);
+                        Text.Draw(emailsBody[3], 205, 90);
                     }
                 }
 
@@ -129,7 +127,7 @@ namespace MohawkGame2D
                     if (Input.GetMouseY() == email5Hitbox && isItCollidedSidebar)
                     {
                         Draw.FillColor = Color.White;
-                        Text.Draw(emailsBody[4], 200, 200);
+                        Text.Draw(emailsBody[4], 205, 90);
                     }
                 }
 

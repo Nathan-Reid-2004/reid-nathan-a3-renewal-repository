@@ -125,7 +125,7 @@ namespace MohawkGame2D
 
             }
 
-            
+            //a new instance of the emailTab class spawns if the player clicks on the email tab in the taskbar.
             bool newTabSpawnEmail = baseTabs.isItCollidedBox && Input.IsMouseButtonDown(MouseInput.Left);
 
             if (newTabSpawnEmail)
@@ -135,6 +135,7 @@ namespace MohawkGame2D
 
             bool newTabSpawnPasscode = baseTabs.isItCollidedStart && Input.IsMouseButtonDown(MouseInput.Left);
 
+            //player must enter correct password to win the game. the "correct password entered" string acts as a win screen.
             if (newTabSpawnPasscode)
             {
                 Console.WriteLine("Please enter admin password.");
@@ -144,11 +145,11 @@ namespace MohawkGame2D
 
                 if (playerPasswordInput != correctPassword)
                 {
-                    Console.WriteLine("Incorrect password. Please re-click the START button and try again.");
+                    Console.WriteLine("Incorrect password. Please return to previous tab.");
                 }
                 else if (playerPasswordInput == correctPassword)
                 {
-                    Console.WriteLine("Correct password entered. Please return to your previous tab- you will see the engine management screen has appeared.");
+                    Console.WriteLine("Correct password entered.");
                 }
 
             }
