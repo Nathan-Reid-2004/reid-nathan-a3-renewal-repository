@@ -16,7 +16,7 @@ The player can use their cursor to hit the virus- when the cursor collides with 
 the virus away whenever it gets close to the email tab. 
 
 As a side note, the player can close the email tab using the red button at the top-right of the tab. This will prevent the virus from colliding with it, and make the tab disappear. This is mainly for the end-game, when the player
-will need extra time to input the passcode. 
+will need extra time to input the passcode. The email tab can be reopened by clicking the right-most grey square button on the taskbar.
 
 When the player thinks they have guessed the passcode, they can click the green button in the bottom-left. This will create a prompt in the command console- the player can then input the password. If it is correct, they win the game.
 If it is incorrect, they will have to return to the game tab and continue. 
