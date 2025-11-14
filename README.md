@@ -26,7 +26,11 @@ Below are the answers for the passcode:
 Passcode: 3*0]U5
 
 How to find '3': The number 3 is mentioned multiple times in the first email and is the only number character. 
+
 How to find '*': Words are blurred out in the second email- these words are covered by asterisks.
+
 How to find '0]': In the third email, there is a typing error at the mention of Exodus Station 0.
+
 How to find 'U': There is a typing error in the word 'continue' in the fourth email- the 'U' in the word is capitalized when it should not be.
+
 How to find '5': Near the end of the final email, 'OS' is spelt incorrectly as 'O5'.
